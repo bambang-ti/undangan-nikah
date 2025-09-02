@@ -1,15 +1,25 @@
 :root {
-  --pink: #f14e95;
-  --bg: #0a0a0a;
-  --shadow: 0 2px 2px rgb(0, 0, 0/0.5);
+  /* Variabel warna untuk section hero (dikembalikan ke pink/brownish) */
+  --pink: #d8b7a6;
+  --bg: #f8f4f0;
+  --shadow: 0 2px 2px rgb(0, 0, 0/0.1);
+  --dark-brown: #3d2d2d;
+  --light-cream: #fbeedc;
+
+  /* Variabel warna baru (untuk section lainnya - palet biru) */
+  --main-blue: #90afcb;
+  --light-blue: #b6d3f0;
+  --bg-color: #f0f8ff;
+  --text-dark-blue: #3d5a80;
 }
 
 body {
-  font-size: 1.2rem;
   font-family: "Work Sans", sans-serif;
-  min-height: 4000px;
+  color: #333;
+  overflow-x: hidden;
 }
 
+/* --- Hero Section (Tetap seperti Desain Awal) --- */
 .hero::before {
   content: "";
   position: absolute;
@@ -17,9 +27,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(assets/img/gambar-wisuda3.JPG);
+  background-image: url(assets/img/background.jpg);
   z-index: -1;
-  filter: brightness(25%);
+  filter: brightness(60%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -36,35 +46,42 @@ body {
   padding: 0 1rem;
 }
 
-hero h1,
+.hero h1,
 .hero h4,
 .hero p {
   text-shadow: var(--shadow);
+  color: white;
 }
 
 .hero h1 {
   font-family: "Sacramento", cursive;
   font-size: 6rem;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 
 .hero h4 {
   font-size: 1.6rem;
+  font-weight: 300;
 }
 
 .hero p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .hero a {
   color: var(--pink);
   background-color: white;
   padding: 0.8rem 2rem;
-  border-radius: 20px;
+  border-radius: 50px;
   font-size: 1rem;
   font-weight: bold;
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 2rem;
   box-shadow: var(--shadow);
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .hero a:hover {
@@ -72,9 +89,11 @@ hero h1,
   color: white;
 }
 
+/* --- Navbar Section (Menggunakan Palet Biru) --- */
 .mynavbar {
-  background-color: rgba(255, 255, 255, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(4px);
+  border-bottom: 1px solid #eee;
 }
 
 .mynavbar .offcanvas {
@@ -86,65 +105,84 @@ hero h1,
   font-family: "Sacramento", cursive;
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--text-dark-blue);
 }
 
 .mynavbar .nav-link {
   font-size: 1rem;
   text-transform: uppercase;
+  color: var(--text-dark-blue);
+}
+.mynavbar .nav-link:hover {
+  color: var(--main-blue);
 }
 
+/* --- Home Section (Menggunakan Palet Biru) --- */
 .home {
-  background-image: url(assets/img/freepik__adjust__3938.png);
-  background-size: cover;
+  background-color: var(--bg-color);
   min-height: 100vh;
-  margin-top: -3.8rem;
-  padding-top: 15rem;
+  padding-top: 10rem;
   padding-bottom: 5rem;
+  margin-top: 0;
 }
 
 .home h2,
 .info h2,
-.rsvp h2 {
-  color: var(--pink);
+.rsvp h2,
+.story h2,
+.gift h2 {
+  color: var(--main-blue);
   font-family: "Sacramento", cursive;
   font-weight: bold;
   font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
 .home h3 {
-  color: #444;
+  color: var(--text-dark-blue);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .home p {
   font-size: 1.1rem;
-  color: #666;
+  color: var(--text-dark-blue);
 }
 
 .home .couple {
-  margin-top: 100px;
+  margin-top: 5rem;
 }
 
 .home .couple h3 {
   font-family: "Sacramento", cursive;
   font-size: 2.4rem;
-  color: var(--pink);
+  color: var(--main-blue);
 }
 
 .home .couple img {
   width: 100%;
+  border-radius: 50%;
+  border: 5px solid var(--main-blue);
+  box-shadow: var(--shadow);
 }
 
+.home .couple .social-link {
+  font-size: 1.5rem;
+  color: var(--main-blue);
+  text-decoration: none;
+  margin-top: 0.5rem;
+}
+
+/* --- Info Section (Menggunakan Palet Biru) --- */
 .info {
-  background-color: var(--bg);
-  color: white;
+  background-color: var(--light-blue);
+  color: var(--text-dark-blue);
   padding-top: 10rem;
   padding-bottom: 8rem;
 }
 
 .info h2 {
-  color: var(--pink);
+  color: var(--main-blue);
   font-family: "Sacramento", cursive;
   font-size: 5rem;
   font-weight: bold;
@@ -152,87 +190,456 @@ hero h1,
 
 .info .alamat {
   font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .info .description {
   font-size: 1rem;
   font-weight: 300;
+  margin-top: 1.5rem;
 }
 
+/* Gaya baru untuk Tombol Lokasi */
+.info a.btn {
+  background-color: white;
+  color: var(--text-dark-blue);
+  border: none;
+  padding: 0.8rem 2.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info a.btn:hover {
+  background-color: var(--text-dark-blue);
+  color: white;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Gaya baru untuk Cards Acara */
 .info .card {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  color: white !important;
-  border: 1px solid #999;
+  background-color: white !important;
+  color: var(--text-dark-blue) !important;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .info .card-header {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #ddd;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  background-color: var(--light-blue);
+  color: var(--text-dark-blue);
+  font-weight: bold;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .info .card-body {
   font-size: 1rem;
+  padding: 1.5rem;
+}
+
+.info .card-body i {
+  color: var(--main-blue);
+  font-size: 1.5rem;
 }
 
 .info .card-footer {
-  border-top: 1px solid #999;
+  border-top: 1px solid #ddd;
   font-size: 0.9rem;
   font-weight: 300;
+  background-color: #f8f8f8;
+  color: #666;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 1rem;
 }
 
-.rsvp {
+/* Our Story Section */
+.story {
+  background-color: var(--bg-color);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.story h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 4.5rem;
+  color: var(--text-dark-blue);
+  margin-bottom: 1rem;
+}
+
+.story p {
+  font-size: 1.1rem;
+  color: var(--text-dark-blue);
+  margin-bottom: 3rem;
+}
+
+/* Gaya untuk Timeline */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: var(--main-blue);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 2px solid var(--main-blue);
+  border-radius: 50%;
+  top: 25px; /* Sesuaikan posisi vertikal titik */
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+  padding-right: 60px; /* Jarak untuk lingkaran */
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+  padding-left: 60px; /* Jarak untuk lingkaran */
+}
+
+.timeline-item:nth-child(odd)::before {
+  right: -8.5px; /* Sesuaikan posisi horizontal titik */
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -8.5px; /* Sesuaikan posisi horizontal titik */
+}
+
+.timeline-item .timeline-content {
+  padding: 20px 30px;
+  background-color: var(--light-blue);
+  position: relative;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  background-color: white;
+}
+
+.timeline-content h3 {
+  font-family: "Sacramento", cursive;
+  font-size: 2.5rem;
+  color: var(--main-blue);
+  margin-top: 0;
+}
+
+/* --- Doa Section (Menggunakan Palet Biru) --- */
+.doa {
+  background-color: var(--text-dark-blue);
+  padding: 5rem 0;
+  color: white;
+  font-style: italic;
+}
+
+.doa p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+/* --- Wedding Gift Section (Menggunakan Palet Biru) --- */
+.gift {
+  background-color: var(--light-blue);
   padding-top: 10rem;
   padding-bottom: 8rem;
 }
 
-.rsvp h2 {
+.gift h2 {
   font-size: 4.5rem;
 }
 
-.rsvp p {
+.gift p {
   font-size: 1rem;
   font-weight: 300;
 }
 
-.rsvp button {
-  background-color: var(--pink);
+.gift .card {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border: none;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  color: var(--text-dark-blue) !important;
+}
+
+.gift .card-body h4 {
+  font-family: "Sacramento", cursive;
+  font-size: 2.5rem;
+  color: var(--main-blue);
+}
+
+.gift .card-body button {
+  background-color: var(--main-blue);
   color: white;
-  border: 1px solid var(--pink);
+  border: 1px solid var(--main-blue);
+  border-radius: 50px;
+  padding: 0.5rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.gift .card-body button:hover {
+  background-color: white;
+  color: var(--main-blue);
+  border: 1px solid var(--main-blue);
+}
+
+/* --- RSVP Section (Menggunakan Palet Biru) --- */
+.rsvp {
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+  background-color: var(--bg-color);
+  text-align: center;
+}
+
+.rsvp h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 4.5rem;
+  color: var(--text-dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+.rsvp p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--text-dark-blue);
+  margin-bottom: 3rem;
+}
+
+.rsvp .form-label {
+  font-weight: 500;
+  color: var(--text-dark-blue);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Penyesuaian untuk formulir */
+.rsvp form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.rsvp .form-group {
+  flex: 1 1 auto;
+  min-width: 250px;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.rsvp .form-group.pesan {
+  flex-basis: 100%; /* Mengambil lebar penuh untuk textarea pada desktop */
+  max-width: 620px;
+}
+
+.rsvp .form-control,
+.rsvp .form-select {
+  border-radius: 10px;
+  border: 1px solid var(--main-blue);
+  padding: 0.7rem 1rem;
+  width: 100%;
+}
+
+.rsvp textarea {
+  resize: vertical;
+}
+
+.rsvp button {
+  background-color: var(--main-blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 0.8rem 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 32px; /* Menyesuaikan posisi tombol */
 }
 
 .rsvp button:hover {
-  background-color: white;
-  color: var(--pink);
-  border: 1px solid var(--pink);
+  background-color: var(--text-dark-blue);
+  color: white;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* --- Footer (Menggunakan Palet Biru) --- */
+footer {
+  background-color: var(--text-dark-blue) !important;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+footer p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+footer small {
+  font-size: 0.8rem;
+  color: #ccc;
+}
+
+/* Media Queries */
 @media (max-width: 992px) {
   html {
     font-size: 75%;
+  }
+  .hero {
+    margin: 1rem;
+  }
+  .hero h1 {
+    font-size: 4rem;
+  }
+  .hero h4 {
+    font-size: 1.6rem;
+  }
+  .home .couple h3 {
+    font-size: 2.2rem;
   }
 }
 
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 3.5rem; /* Perkecil ukuran nama utama */
+    font-size: 3rem;
   }
-
   .hero h4 {
-    font-size: 1.2rem; /* Perkecil ukuran sub-judul */
+    font-size: 1.2rem;
   }
-
   .hero p {
-    font-size: 1.1rem; /* Perkecil ukuran paragraf */
+    font-size: 1.1rem;
   }
 
-  .mynavbar .nav-link {
-    font-size: 1.5rem;
-    text-align: center;
-    text-transform: uppercase;
+  /* Perbaikan untuk tampilan mempelai */
+  .home .couple .row {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
   }
 
-  .sticky-top {
-    overflow: hidden;
+  .home .couple .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home .couple .col-lg-6 {
+    margin-bottom: 3rem;
+  }
+
+  /* Perataan teks dan ikon di tengah */
+  .home .couple .text-end,
+  .home .couple .text-start {
+    text-align: center !important;
+  }
+
+  /* Ikon hati di antara nama mempelai */
+  .home .couple h3 {
+    margin-bottom: 0.5rem;
+  }
+  .home .couple .social-link {
+    margin-top: 0.5rem;
+  }
+
+  .info h2,
+  .rsvp h2,
+  .story h2,
+  .gift h2 {
+    font-size: 3rem;
+  }
+  .info .card {
+    margin-bottom: 2rem;
+  }
+
+  /* Perbaikan Timeline untuk Mobile */
+  .timeline::after {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 15px;
+    text-align: left !important;
+    margin-bottom: 2rem;
+  }
+  .timeline-item::before {
+    left: 12px;
+    top: 20px;
+  }
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+  .timeline-item:nth-child(odd)::before {
+    left: 12px;
+    right: auto;
+  }
+  .timeline-item:nth-child(even)::before {
+    left: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero h4 {
+    font-size: 1rem;
+  }
+  .home .couple h3 {
+    font-size: 1.8rem;
+  }
+  .home .simply-countdown > .simply-section {
+    padding: 0.5rem;
+    margin: 0 0.2rem;
+  }
+  .home .simply-countdown > .simply-section > .simply-amount {
+    font-size: 1.2rem;
+  }
+  .home .simply-countdown > .simply-section > .simply-word {
+    font-size: 0.7rem;
+  }
+  .info h2,
+  .rsvp h2,
+  .story h2,
+  .gift h2 {
+    font-size: 2.5rem;
   }
 }
